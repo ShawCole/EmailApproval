@@ -24,8 +24,9 @@ export function EditableCampaignName({ name, onChange }: EditableCampaignNamePro
 
   const handleSubmit = () => {
     const trimmedValue = value.trim();
-    if (trimmedValue && trimmedValue !== name) {
+    if (trimmedValue) {
       onChange(trimmedValue);
+      setValue(trimmedValue);
     } else {
       setValue(name);
     }
@@ -60,7 +61,7 @@ export function EditableCampaignName({ name, onChange }: EditableCampaignNamePro
           className="group flex items-center gap-2"
         >
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-            {name || "Campaign Name"}
+            {value || "Campaign Name"}
           </h1>
           <Pencil className="w-5 h-5 text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity" />
         </button>
